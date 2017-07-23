@@ -1,3 +1,21 @@
 {
-
+  "messageId": "0000000001",
+  "body":[
+    {
+      "name":"well_hourly_water_level",
+      "datapoints":[
+        [1500796800,
+          43.1],
+        [1500800400,
+          38.5],
+        [1500804000,
+          44.2]
+    ],
+      "attributes":{
+        "Community":"Wusuta_Sakakyere",
+        "latitude": 6.822487,
+        "longitude": 0.246398
+      }
+    }
+  ]
 }
