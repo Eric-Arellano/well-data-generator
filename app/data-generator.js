@@ -55,24 +55,31 @@ function generateDatapoints(numDatapoints) {
 // Generate JSON record
 // ---------------------------------
 
+function generateJson(communityName, datapoints) {
+  const community = getCommunity(communityName);
+  const message = {
+    messageId: generateMessageId(),
+    body: [{
+      name: 'hourly_water_flow',
+      datapoints,
+      attributes: {
+        community: community.name,
+        latitude: community.latitude,
+        longitude: community.longitude,
+      },
+    }],
+  };
+  return JSON.stringify(message);
+}
+
 module.exports = {
-  generateJsonForGivenCommunity(name) {
-    const community = getCommunity(name);
-    const message = {
-      messageId: generateMessageId(),
-      body: [{
-        name: 'well_hourly_water_level',
-        datapoints: generateDatapoints(4),
-        attributes: {
-          community: community.name,
-          latitude: community.latitude,
-          longitude: community.longitude,
-        },
-      }],
-    };
-    return JSON.stringify(message);
+  generateFunctioningData(name) {
+    return generateJson(name, generateDatapoints(4));
   },
-  generateJsonForRandomCommunity() {
-    return module.exports.generateJsonForGivenCommunity(getRandomCommunityName());
+  generateBrokenData(name) {
+    return generateJson(name, generateDatapoints(4));
+  },
+  getRandomCommunityName() {
+    return getRandomCommunityName();
   },
 };
