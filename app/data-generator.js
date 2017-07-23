@@ -30,11 +30,22 @@ function generateMessageId() {
   return `_${Math.random().toString(36).substr(2, 9)}`;
 }
 
+function generateTimestamp(hourOfDay) {
+  const millisecondTimestamp = Date.now();
+  const unixTimestamp = Math.floor(millisecondTimestamp / 1000);
+  return unixTimestamp + (hourOfDay * 3600);
+}
+
+function generateValue() {
+  const randomValue = (Math.random() * 10) + 35.0;
+  return Math.round(randomValue * 1e2) / 1e2;
+}
+
 function generateDatapoints(numDatapoints) {
   const datapoints = [];
   for (let i = 0; i < numDatapoints; i += 1) {
-    const timestamp = 101 * i; // TODO: implement timestamp
-    const value = Math.random(); // TODO: implement random value
+    const timestamp = generateTimestamp(i);
+    const value = generateValue();
     datapoints.push([timestamp, value]);
   }
   return datapoints;
