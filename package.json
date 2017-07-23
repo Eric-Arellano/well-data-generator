@@ -2,8 +2,9 @@
   "name": "well-data-generator",
   "version": "1.0.0",
   "description": "Tool to generate random JSON timeseries data simulating a clean water well.",
-  "main": "index.js",
+  "main": "app/server.js",
   "scripts": {
+    "start": "node_modules/.bin/nodemon app/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +24,7 @@
   "devDependencies": {
     "eslint": "^4.3.0",
     "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-plugin-import": "^2.7.0"
+    "eslint-plugin-import": "^2.7.0",
+    "nodemon": "^1.11.0"
   }
 }
