@@ -1,3 +1,5 @@
+const faker = require('faker');
+
 // ---------------------------------
 // Generate individual attributes
 // ---------------------------------
@@ -23,11 +25,11 @@ function getCommunity(name) {
 }
 
 function getRandomCommunityName() {
-  return communities[Math.floor(Math.random() * communities.length)].name;
+  return faker.random.arrayElement(communities).name;
 }
 
 function generateMessageId() {
-  return `_${Math.random().toString(36).substr(2, 9)}`;
+  return faker.random.uuid();
 }
 
 function generateTimestamp(hourOfDay) {
@@ -36,11 +38,13 @@ function generateTimestamp(hourOfDay) {
   return unixTimestamp + (hourOfDay * 3600);
 }
 
+// value from 35 - 45, with two decimals
 function generateFunctioningValue() {
   const randomValue = (Math.random() * 10) + 35.0;
   return Math.round(randomValue * 1e2) / 1e2;
 }
 
+// value from 0 - 2, with two decimals
 function generateBrokenValue() {
   const randomValue = (Math.random() * 2);
   return Math.round(randomValue * 1e2) / 1e2;

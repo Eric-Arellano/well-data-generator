@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Eric-Arellano/well-data-generator#readme",
   "dependencies": {
     "express": "^4.15.3",
+    "faker": "^4.1.0",
     "npm": "^5.3.0"
   },
   "devDependencies": {
