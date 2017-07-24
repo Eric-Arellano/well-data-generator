@@ -96,7 +96,6 @@ function generateBrokenValue(index) {
 
 function generateDatapoints(numDatapoints, isBroken = false) {
   const datapoints = [];
-  console.log(isBroken);
   for (let i = 0; i < numDatapoints; i += 1) {
     const timestamp = generateTimestamp(i);
     const value = isBroken ? generateBrokenValue(i) : generateFunctioningValue();
