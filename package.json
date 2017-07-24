@@ -17,6 +17,9 @@
     "url": "https://github.com/Eric-Arellano/well-data-generator/issues"
   },
   "homepage": "https://github.com/Eric-Arellano/well-data-generator#readme",
+  "engines": {
+    "node": "8.1.4"
+  },
   "dependencies": {
     "express": "^4.15.3",
     "faker": "^4.1.0",
