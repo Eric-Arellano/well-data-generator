@@ -35,7 +35,7 @@ app.get('/api/broken/community/:communityName', (req, res) => {
   res.send(data);
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('Well Data Generator app listening on port 3000!');
 });
 
