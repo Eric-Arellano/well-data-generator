@@ -36,16 +36,22 @@ function generateTimestamp(hourOfDay) {
   return unixTimestamp + (hourOfDay * 3600);
 }
 
-function generateValue() {
+function generateFunctioningValue() {
   const randomValue = (Math.random() * 10) + 35.0;
   return Math.round(randomValue * 1e2) / 1e2;
 }
 
-function generateDatapoints(numDatapoints) {
+function generateBrokenValue() {
+  const randomValue = (Math.random() * 2);
+  return Math.round(randomValue * 1e2) / 1e2;
+}
+
+// TODO: Is there a better way to generate both broken & functioning data?
+function generateDatapoints(numDatapoints, isNotBroken) {
   const datapoints = [];
   for (let i = 0; i < numDatapoints; i += 1) {
     const timestamp = generateTimestamp(i);
-    const value = generateValue();
+    const value = isNotBroken ? generateFunctioningValue() : generateBrokenValue();
     datapoints.push([timestamp, value]);
   }
   return datapoints;
@@ -74,10 +80,10 @@ function generateJson(communityName, datapoints) {
 
 module.exports = {
   generateFunctioningData(name) {
-    return generateJson(name, generateDatapoints(4));
+    return generateJson(name, generateDatapoints(4, true));
   },
   generateBrokenData(name) {
-    return generateJson(name, generateDatapoints(4));
+    return generateJson(name, generateDatapoints(4, false));
   },
   getRandomCommunityName() {
     return getRandomCommunityName();
