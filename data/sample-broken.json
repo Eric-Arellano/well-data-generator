@@ -1,0 +1,21 @@
+{
+  "messageId": "0000000001",
+  "body":[
+    {
+      "name":"hourly_water_flow",
+      "datapoints":[
+        [1500796800,
+          38.12],
+        [1500800400,
+          1.83],
+        [1500804000,
+          0.34]
+      ],
+      "attributes":{
+        "community":"Wusuta Sakakyere",
+        "latitude": 6.822487,
+        "longitude": 0.246398
+      }
+    }
+  ]
+}
